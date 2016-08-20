@@ -88,10 +88,11 @@ if __name__ == '__main__':
     else:
         picture = ''
 
-    cmd = 'notify-send "%s" "%s" %s' % (title, message, picture)
+    cmd = 'notify-send "%s" "%s" %s -u critical' % (title, message, picture)
     os.system(cmd.encode('utf-8'))
 
     sound_filename = process_sound(word)
     if not args.ns:
         sound = os.path.join(os.path.abspath(os.path.curdir), 'media', sound_filename)
         os.system('mpg123 %s' % sound)
+
